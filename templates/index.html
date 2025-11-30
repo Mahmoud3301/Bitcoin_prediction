@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-white">
+                Bitcoin AI Predictor 2025
+            </h1>
+            <p class="lead text-light">
+                Advanced neural network predictions using LSTM and GRU models. 
+                Get accurate Bitcoin price forecasts with AI technology.
+            </p>
+            <div class="d-flex gap-2 mb-3">
+                <span class="badge bg-success">LSTM Network</span>
+                <span class="badge bg-info">GRU Network</span>
+                <span class="badge bg-warning">Real-time Analysis</span>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <i class="fab fa-bitcoin display-1 text-warning"></i>
+        </div>
+    </div>
+
+    <!-- Prediction Form -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg card-hover">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-chart-line me-2"></i>AI Prediction Engine</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form id="predictionForm">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Select AI Model:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="model_type" id="lstm" value="LSTM" checked>
+                                    <label class="btn btn-outline-primary" for="lstm">
+                                        <i class="fas fa-brain me-2"></i>LSTM
+                                    </label>
+                                    
+                                    <input type="radio" class="btn-check" name="model_type" id="gru" value="GRU">
+                                    <label class="btn btn-outline-primary" for="gru">
+                                        <i class="fas fa-network-wired me-2"></i>GRU
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="prediction_days" class="form-label fw-bold">Prediction Period:</label>
+                                <select class="form-select" id="prediction_days" name="prediction_days">
+                                    <option value="7">1 Week</option>
+                                    <option value="15" selected>15 Days</option>
+                                    <option value="30">1 Month</option>
+                                    <option value="60">2 Months</option>
+                                    <option value="90">3 Months</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Current Market Data -->
+                        <div class="alert alert-info">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <strong>Current BTC:</strong>
+                                    <div id="currentPrice" class="fw-bold fs-5">$45,280.50</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <strong>24h Change:</strong>
+                                    <div id="priceChange" class="fw-bold fs-5 price-up">+2.5%</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <strong>AI Status:</strong>
+                                    <div id="aiStatus" class="fw-bold fs-5 text-success">Ready</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5" id="predictButton">
+                                <i class="fas fa-rocket me-2"></i>Generate Prediction
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="text-center mt-4 loading-spinner">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 fs-5 text-white">
+            <i class="fas fa-cog fa-spin me-2"></i>
+            AI is generating predictions... Analyzing market patterns
+        </p>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultsSection" class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-lg card-hover">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Prediction Results</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Model Info -->
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="alert alert-primary">
+                                <strong><i class="fas fa-brain me-2"></i>AI Model:</strong> 
+                                <span id="modelUsed" class="fw-bold">-</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-info">
+                                <strong><i class="fas fa-calendar me-2"></i>Forecast Period:</strong> 
+                                <span id="periodUsed" class="fw-bold">-</span> days
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-warning">
+                                <strong><i class="fas fa-clock me-2"></i>Generated:</strong> 
+                                <span id="generationTime" class="fw-bold">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Statistics -->
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <div class="card text-white bg-success">
+                                <div class="card-body text-center">
+                                    <h6><i class="fas fa-dollar-sign me-2"></i>Average Price</h6>
+                                    <h3 id="avgPrice">$0</h3>
+                                    <small>Mean predicted value</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-warning">
+                                <div class="card-body text-center">
+                                    <h6><i class="fas fa-arrow-down me-2"></i>Minimum</h6>
+                                    <h3 id="minPrice">$0</h3>
+                                    <small>Lowest predicted</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-danger">
+                                <div class="card-body text-center">
+                                    <h6><i class="fas fa-arrow-up me-2"></i>Maximum</h6>
+                                    <h3 id="maxPrice">$0</h3>
+                                    <small>Highest predicted</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-info">
+                                <div class="card-body text-center">
+                                    <h6><i class="fas fa-chart-line me-2"></i>Overall Trend</h6>
+                                    <h3 id="trendIndicator">→ 0%</h3>
+                                    <small>vs Current Price</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="mb-4">
+                        <div class="chart-container">
+                            <canvas id="predictionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Prediction Insights -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="alert alert-light border">
+                                <h6><i class="fas fa-lightbulb me-2 text-warning"></i>AI Insights</h6>
+                                <p id="aiInsights" class="mb-0">
+                                    The neural network has analyzed historical patterns and market trends to generate this forecast. 
+                                    Predictions are based on deep learning models trained on extensive Bitcoin price data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Predictions -->
+                    <div class="table-responsive">
+                        <h5 class="mb-3"><i class="fas fa-table me-2"></i>Detailed Forecast</h5>
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Predicted Price (USD)</th>
+                                    <th>Change vs Current</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody id="predictionsBody">
+                                <!-- Predictions will be populated here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

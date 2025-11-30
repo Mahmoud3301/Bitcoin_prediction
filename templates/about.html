@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}About - Bitcoin Predictor 2025{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card shadow-lg card-hover">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0"><i class="fas fa-info-circle me-2"></i>About Bitcoin Predictor 2025</h3>
+                </div>
+                <div class="card-body p-5">
+                    <h4 class="text-primary mb-4">Advanced AI-Powered Bitcoin Price Prediction</h4>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-brain text-primary me-2"></i>LSTM Model</h5>
+                                    <p class="mb-0">Long Short-Term Memory networks are perfect for time series
+                                        prediction with their ability to learn long-term dependencies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-network-wired text-info me-2"></i>GRU Model</h5>
+                                    <p class="mb-0">Gated Recurrent Units offer similar capabilities to LSTM but with a
+                                        simpler architecture and faster training.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="mt-4">How It Works</h5>
+                    <ol class="list-group list-group-numbered mb-4">
+                        <li class="list-group-item">Historical Bitcoin price data is collected and preprocessed</li>
+                        <li class="list-group-item">Deep learning models are trained on this data</li>
+                        <li class="list-group-item">Models learn complex patterns and trends</li>
+                        <li class="list-group-item">Real-time predictions are generated based on learned patterns</li>
+                    </ol>
+
+                    <div class="alert alert-warning">
+                        <h6><i class="fas fa-exclamation-triangle me-2"></i>Important Disclaimer</h6>
+                        <p class="mb-0">
+                            This tool is for educational and research purposes only. Cryptocurrency investments
+                            carry high risks. Past performance is not indicative of future results. Always
+                            consult with financial advisors before making investment decisions.
+                        </p>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket me-2"></i>Start Predicting
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
