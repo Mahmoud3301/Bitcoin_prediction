@@ -9,18 +9,19 @@ This system supports multi-day forecasting, professional visualization, real-tim
 > Replace the image paths with your real screenshots.
 
 <p align="center">
-  <img src="[Demo/1.png](https://github.com/Mahmoud3301/Bitcoin_prediction/blob/main/demo/1.png)" width="45%"/>
-  <img src="Demo/2.png" width="45%"/>
+  <img src="https://raw.githubusercontent.com/Mahmoud3301/Bitcoin_prediction/main/demo/1.png" width="45%"/>
+  <img src="https://raw.githubusercontent.com/Mahmoud3301/Bitcoin_prediction/main/demo/2.png" width="45%"/>
 </p>
 
 <p align="center">
-  <img src="Demo/3.png" width="45%"/>
-  <img src="Demo/4.png" width="45%"/>
+  <img src="https://raw.githubusercontent.com/Mahmoud3301/Bitcoin_prediction/main/demo/3.png" width="45%"/>
+  <img src="https://raw.githubusercontent.com/Mahmoud3301/Bitcoin_prediction/main/demo/4.png" width="45%"/>
 </p>
 
 <p align="center">
-  <img src="Demo/5.png" width="45%"/>
+  <img src="https://raw.githubusercontent.com/Mahmoud3301/Bitcoin_prediction/main/demo/5.png" width="45%"/>
 </p>
+
 ---
 
 ## 📌 Key Features
@@ -40,22 +41,38 @@ This system supports multi-day forecasting, professional visualization, real-tim
 ## 🧠 Deep Learning Models
 
 ### 🔹 LSTM (Long Short-Term Memory)
-- Input: 1D Time Series
-- Hidden Size: 50
-- Layers: 2
-- Dropout: 0.2
-- Output: 1 value per step
 
 ### 🔹 GRU (Gated Recurrent Unit)
-- Input: 1D Time Series
-- Hidden Size: 50
-- Layers: 2
-- Dropout: 0.2
-- Output: 1 value per step
 
 Both models are trained offline and loaded as `.pth` PyTorch weights during runtime.
 
 ---
 
-## 🏗️ Project Structure
+
+## 📊 Prediction Output
+
+The system returns:
+
+- Daily predicted prices  
+- Percentage change per day  
+- Summary statistics:
+  - Minimum price  
+  - Maximum price  
+  - Average price  
+  - First predicted price  
+  - Final predicted price  
+  - Overall percentage change  
+---
+
+💡 Specializations:
+
+Time Series Forecasting
+
+Computer Vision
+
+Natural Language Processing
+
+ML Model Deployment
+
+Flask & API Development
 
