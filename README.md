@@ -9,7 +9,7 @@ This system supports multi-day forecasting, professional visualization, real-tim
 > Replace the image paths with your real screenshots.
 
 <p align="center">
-  <img src="Demo/1.png" width="45%"/>
+  <img src="[Demo/1.png](https://github.com/Mahmoud3301/Bitcoin_prediction/blob/main/demo/1.png)" width="45%"/>
   <img src="Demo/2.png" width="45%"/>
 </p>
 
