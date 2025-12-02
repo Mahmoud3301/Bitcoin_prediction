@@ -6,7 +6,6 @@ This system supports multi-day forecasting, professional visualization, real-tim
 
 ## 🖼️ Application Preview
 
-> Replace the image paths with your real screenshots.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Mahmoud3301/Bitcoin_prediction/main/demo/1.png" width="45%"/>
