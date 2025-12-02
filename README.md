@@ -42,6 +42,10 @@ This system supports multi-day forecasting, professional visualization, real-tim
 ## https://www.kaggle.com/datasets/novandraanugrah/bitcoin-historical-datasets-2018-2024?select=btc_4h_data_2018_to_2025.csv
 
 ---
+## Link of Demo & report : 
+## https://drive.google.com/drive/folders/15ikq6Z5DHKDR21EQ5hB0IhhkX_aDq4yj
+
+---
 
 ## 🧠 Deep Learning Models
 
