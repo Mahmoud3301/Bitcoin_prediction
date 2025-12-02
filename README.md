@@ -38,6 +38,11 @@ This system supports multi-day forecasting, professional visualization, real-tim
 
 ---
 
+## Data set : 
+## https://www.kaggle.com/datasets/novandraanugrah/bitcoin-historical-datasets-2018-2024?select=btc_4h_data_2018_to_2025.csv
+
+---
+
 ## 🧠 Deep Learning Models
 
 ### 🔹 LSTM (Long Short-Term Memory)
