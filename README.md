@@ -42,7 +42,7 @@ This system supports multi-day forecasting, professional visualization, real-tim
 
 ---
 ## Link of Demo & report : 
-## https://drive.google.com/drive/folders/15ikq6Z5DHKDR21EQ5hB0IhhkX_aDq4yj
+## https://drive.google.com/drive/folders/15ikq6Z5DHKDR21EQ5hB0IhhkX_aDq4yjaDq4yj
 
 ---
 
